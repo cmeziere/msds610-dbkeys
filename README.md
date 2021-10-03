@@ -22,7 +22,15 @@ UNIQUE (last_name));
 <img src="img/2.png" > 
 
 ### 3. Use 
-
+```
+SELECT * FROM socials WHERE first_name = 'Jessica';
+```
+```
+SELECT * FROM socials WHERE ssn = 676933726;
+```
+```
+SELECT * FROM socials WHERE last_name = 'Frye';
+```
 <img src="img/4.png" > 
 
 
