@@ -8,13 +8,17 @@ In general, one table can set multiple unique keys but only one primary key. Unl
 
 <img src="img/1.jpg" > 
 
+
+
+
 2. Initialization in a table
 
-'''
+```
 CREATE TABLE socials
 (ssn INTEGER NOT NULL,
 first_name VARCHAR
 last_name VARCHAR,
 PRIMARY KEY (ssn),
 UNIQUE (last_name));
-'''
+
+```
