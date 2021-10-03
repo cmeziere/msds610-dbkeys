@@ -11,6 +11,7 @@ CREATE TABLE socials
  UNIQUE (last_name));
  
 --Import data into socials from socials.csv
+-- Be sure to use the location of the csv on your computer
 COPY socials
 FROM '/Users/cameronmeziere/Documents/Communications/msds610-dbkeys/socials.csv'
 DELIMITER ','
@@ -24,6 +25,10 @@ SELECT * FROM socials WHERE ssn = 676933726;
 
 --Find records using Unique Key (should only ever return up to one record)
 SELECT * FROM socials WHERE last_name = 'Frye';
+
+--Enter values that already exist in Primary or Unique Key
+INSERT INTO socials VALUES (676933726, 'Jamie', 'Alberts');
+INSERT INTO socials VALUES (111111111, 'Edward', 'Frye');
  
  --Create websites table with Foreign Key that references ssn in socials table
 CREATE TABLE websites
@@ -35,6 +40,7 @@ CREATE TABLE websites
  ON DELETE CASCADE ON UPDATE CASCADE);
  
 --Import data into websites table from websites.csv
+-- Be sure to use the location of the csv on your computer
 COPY websites
 FROM '/Users/cameronmeziere/Documents/Communications/msds610-dbkeys/websites.csv'
 DELIMITER ','
