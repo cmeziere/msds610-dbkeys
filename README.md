@@ -17,7 +17,6 @@ first_name VARCHAR
 last_name VARCHAR,
 PRIMARY KEY (ssn),
 UNIQUE (last_name));
-
 ```
 
 <img src="img/2.png" > 
@@ -37,7 +36,6 @@ INSERT INTO socials VALUES (676933726,'Jamie','Alberts')
 ERROR: duplicate key value violates unique constraint "socials_pkey"
 DETAIL: Key(ssn)=(676933726) already exists.
 SQL state: 23505
-
 ```
 
 Violating Unique Key
@@ -49,7 +47,6 @@ INSERT INTO socials VALUES (111111111,'Edward','Frye')
 ERROR: duplicate key value violates unique constraint "socials_last_name_key"
 DETAIL: Key(last_name) =(Frye) already exists
 SQL state:23505
-
 ```
 
 ## Primary Key & Foreign Key
@@ -88,5 +85,12 @@ UPDATE socials SET ssn = 999999999 where ssn = 676933726
 <img src="img/5.png" > 
 
 
+## AFTER TABLE CREATION
+
+We can also initializa primary key, unique key and foreign key after creating tables; one example below.
+
+```
+ALTER TABLE websites ADD PRIMARY KEY (website, username)
+```
 
 
