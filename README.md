@@ -22,9 +22,11 @@ UNIQUE (last_name));
 <img src="img/2.png" > 
 
 ### 3. Use 
+Filtering by a column that is not a Primary or Unique Key returns multiple rows:
 ```
 SELECT * FROM socials WHERE first_name = 'Jessica';
 ```
+Filtering by a Primary or Unique Key returns a unique row:
 ```
 SELECT * FROM socials WHERE ssn = 676933726;
 ```
