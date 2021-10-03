@@ -22,7 +22,7 @@ UNIQUE (last_name));
 
 <img src="img/2.png" > 
 
-### 3. Use for Primary Key and Unique Key
+### 3. Use 
 
 <img src="img/4.png" > 
 
@@ -62,7 +62,30 @@ We use primary key and foreign key to link or relate the information in one tabl
 CREATE TABLE websites
 (ssn INTEGER NOT NULL,
 website VARCHAR,
+username VARCHAR,
+password VARCHAR,
+FOREIGN KEY(ssn) REFERENCES socials (ssn)
+ON DELETE CASCADE ON UPDATE CASCADE);
+```
 
+### 2. Use
+
+Join tables
+
+```
+SELECT socials.ssn, first_name, last_name, website, username password
+FROM socials
+JOIN websites ON websites.ssn = socials.ssn
+WHERE website='benefits.gov';
+```
+
+Update tables automatically
+
+```
+UPDATE socials SET ssn = 999999999 where ssn = 676933726
+```
+
+<img src="img/5.png" > 
 
 
 
