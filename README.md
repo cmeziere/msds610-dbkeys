@@ -64,6 +64,7 @@ SQL state:23505
 We use primary key and foreign key to link or relate the information in one table to another table.
 
 ### 1. Initialization
+``` ON DELETE CASCADE ON UPDATE CASCADE``` means we have set up reference table to update or delete automatically according to the change from the main table.
 
 ```
 CREATE TABLE websites
@@ -77,7 +78,17 @@ ON DELETE CASCADE ON UPDATE CASCADE);
 
 ### 2. Use
 
-Join tables
+Update tables automatically
+
+```
+UPDATE socials SET ssn = 999999999 where ssn = 676933726
+```
+
+<img src="img/5.png" > 
+
+Join tables 
+
+Since primary keys and foreign keys are a type of integrity constraint, if we join tables using them as keys, we will get the error-free and complete result.
 
 ```
 SELECT socials.ssn, first_name, last_name, website, username password
@@ -86,13 +97,7 @@ JOIN websites ON websites.ssn = socials.ssn
 WHERE website='benefits.gov';
 ```
 
-Update tables automatically
 
-```
-UPDATE socials SET ssn = 999999999 where ssn = 676933726
-```
-
-<img src="img/5.png" > 
 
 
 ## AFTER TABLE CREATION
