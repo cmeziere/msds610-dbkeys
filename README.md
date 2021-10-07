@@ -105,7 +105,10 @@ WHERE website='benefits.gov';
 We can also initializa primary key, unique key and foreign key after creating tables; one example below.
 
 ```
-ALTER TABLE websites ADD PRIMARY KEY (website, username)
+ALTER TABLE websites ADD PRIMARY KEY (website, username);
 ```
 
+```
+ALTER TABLE websites DROP CONSTRAINT websites_pkey;
+```
 
