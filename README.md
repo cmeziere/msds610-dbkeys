@@ -1,5 +1,23 @@
 # msds610-dbkeys
-Coding Demonstration of Database Keys
+
+## Objective
+Learn about Three Types of Database Keys
+
+Learn How To Initialize Database Keys
+
+Explore Uses of Keys
+
+Drop Database Keys If Necessary
+
+## What are Database Keys?
+Three Types: Primary, Unique, and Foreign
+
+Constraints on Tables
+
+Keys can be used to ensure data integrity
+
+Keys are used to efficiently search databases or establish relationships between databases
+
 
 ## Primary Key & Unique Key
 ### 1. Difference between Primary Key and Unique Key
