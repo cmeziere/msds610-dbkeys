@@ -22,7 +22,7 @@ Keys are used to efficiently search databases or establish relationships between
 ## Primary Key & Unique Key
 ### 1. Difference between Primary Key and Unique Key
 
-In general, one table can set multiple unique keys but only one primary key. Unlike the primary key, unqiue keys torelate null values in a set.
+In general, one table can set multiple unique keys but only one primary key. Unlike the primary key, unique keys torelate null values in a set. The unique key can take multiple null values. 
 
 <img src="img/1.jpg" > 
 
@@ -37,7 +37,7 @@ PRIMARY KEY (ssn),
 UNIQUE (last_name));
 ```
 
-<img src="img/2.png" > 
+<img src="img/creating_keys.png" > 
 
 ### 3. Use 
 Filtering by a column that is not a Primary or Unique Key returns multiple rows:
@@ -56,7 +56,7 @@ SELECT * FROM socials WHERE last_name = 'Frye';
 
 ### 4. Potential Errors
 
-Violating Primary Key
+The column(s) that serves as primary key or unique key would not take a existing value. This function helps users to identify potential mistakes in the dataset. 
 ```
 INSERT INTO socials VALUES (676933726,'Jamie','Alberts')
 
@@ -66,23 +66,12 @@ DETAIL: Key(ssn)=(676933726) already exists.
 SQL state: 23505
 ```
 
-Violating Unique Key
+## Foreign Key
 
-```
-INSERT INTO socials VALUES (111111111,'Edward','Frye')
-
----
-ERROR: duplicate key value violates unique constraint "socials_last_name_key"
-DETAIL: Key(last_name) =(Frye) already exists
-SQL state:23505
-```
-
-## Primary Key & Foreign Key
-
-We use primary key and foreign key to link or relate the information in one table to another table.
+We use foreign keys to show the corresponding information from one table to another.
 
 ### 1. Initialization
-``` ON DELETE CASCADE ON UPDATE CASCADE``` means we have set up reference table to update or delete automatically according to the change from the main table.
+``` ON DELETE CASCADE ON UPDATE CASCADE``` indicates that the foreign key will be updated or deleted accordingly upon changes that are made to the reference table.
 
 ```
 CREATE TABLE websites
@@ -96,7 +85,7 @@ ON DELETE CASCADE ON UPDATE CASCADE);
 
 ### 2. Use
 
-Update tables automatically
+With ```ON UPDATE CASCADE```, the foreign key is changed accrodingly with the change that is made to the reference table.
 
 ```
 UPDATE socials SET ssn = 999999999 where ssn = 676933726
@@ -118,15 +107,19 @@ WHERE website='benefits.gov';
 
 
 
-## AFTER TABLE CREATION
+## CREATE KEYS ON EXISTING TABLES
 
-We can also initializa primary key, unique key and foreign key after creating tables; one example below.
+We can also initialize primary key, unique key and foreign key on existing tables with the ```ALTER``` function.
 
 ```
 ALTER TABLE websites ADD PRIMARY KEY (website, username);
 ```
 
+
+## DELETE KEYS
+
+To delete a key, we use the ```ALTER``` function with ```DROP CONSTRAINT```
+
 ```
 ALTER TABLE websites DROP CONSTRAINT websites_pkey;
 ```
-
