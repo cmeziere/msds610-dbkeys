@@ -28,8 +28,10 @@ SELECT * FROM socials WHERE last_name = 'Frye';
 
 --Enter values that already exist in Primary or Unique Key
 INSERT INTO socials VALUES (676933726, 'Jamie', 'Alberts');
-INSERT INTO socials VALUES (111111111, 'Edward', 'Frye');
- 
+INSERT INTO socials VALUES (111111111, 'Edward', NULL);
+
+SELECT * FROM socials WHERE last_name IS NULL;
+
  --Create websites table with Foreign Key that references ssn in socials table
 CREATE TABLE websites
 (ssn INTEGER NOT NULL,
